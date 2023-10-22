@@ -23,7 +23,7 @@ namespace home_FLASH
             _speedRead = rand.Next(100, 1000);
         }
 
-        public DVD(double speedWrite, double speedRead)
+        public DVD(int speedWrite, int speedRead)
         {
             Name = "DVD";
             Brand = "unknown";

@@ -19,7 +19,8 @@ namespace home_FLASH
                 Console.WriteLine("4 - Find storage");
                 Console.WriteLine("5 - Exit");
 
-                int selected = Convert.ToInt32(Console.ReadLine());
+                string input = Console.ReadLine();
+                int selected = String.IsNullOrWhiteSpace(input) ? 5 :Convert.ToInt32(input);
 
                 if (selected == 5) break;
                 else menu[selected]();

@@ -78,10 +78,100 @@ namespace home_FLASH
 
         public void EditStorage()
         {
-            foreach (var s in _list)
+            string input;
+
+            Console.WriteLine("Enter the id of storage: ");
+            int selected = Convert.ToInt32(Console.ReadLine());
+            Console.Clear();
+
+
+            Console.WriteLine("ENTER to skip field");
+            Console.Write("Name = ");
+            input = Console.ReadLine();
+
+            if (!String.IsNullOrWhiteSpace(input)) _list[selected].Name = input;
+            Console.Clear();
+
+            Console.WriteLine("ENTER to skip field");
+            Console.Write("Brand = ");
+            input = Console.ReadLine();
+
+            if (!String.IsNullOrWhiteSpace(input)) _list[selected].Brand = input;
+            Console.Clear();
+
+            Console.WriteLine("ENTER to skip field");
+            Console.Write("Model = ");
+            input = Console.ReadLine();
+
+            if (!String.IsNullOrWhiteSpace(input)) _list[selected].Model = input;
+            Console.Clear();
+
+            Console.WriteLine("ENTER to skip field");
+            Console.Write("Count = ");
+            input = Console.ReadLine();
+
+            if (!String.IsNullOrWhiteSpace(input)) _list[selected].Count = Convert.ToInt32(input);
+            Console.Clear();
+
+            Console.WriteLine("ENTER to skip field");
+            Console.Write("Price = ");
+            input = Console.ReadLine();
+
+            if (!String.IsNullOrWhiteSpace(input)) _list[selected].Price = Convert.ToDouble(input);
+            Console.Clear();
+
+            if (_list[selected] as Flash != null)
             {
-                s.PrintInfo();
+                Flash temp = _list[selected] as Flash;
+
+                Console.WriteLine("ENTER to skip field");
+                Console.Write("Size = ");
+                input = Console.ReadLine();
+
+                if (!String.IsNullOrWhiteSpace(input)) temp.Size = Convert.ToInt32(input);
+
+                Console.WriteLine("ENTER to skip field");
+                Console.Write("Speed of USB = ");
+                input = Console.ReadLine();
+
+                if (!String.IsNullOrWhiteSpace(input)) temp.USB = Convert.ToInt32(input);
             }
+            else if (_list[selected] as HDD != null)
+            {
+                HDD temp = _list[selected] as HDD;
+
+                Console.WriteLine("ENTER to skip field");
+                Console.Write("Size = ");
+                input = Console.ReadLine();
+
+                if (!String.IsNullOrWhiteSpace(input)) temp.Size = Convert.ToInt32(input);
+
+                Console.WriteLine("ENTER to skip field");
+                Console.Write("Speed of USB = ");
+                input = Console.ReadLine();
+
+                if (!String.IsNullOrWhiteSpace(input)) temp.USB = Convert.ToInt32(input);
+            }
+            else if (_list[selected] as DVD != null)
+            {
+                DVD temp = _list[selected] as DVD;
+
+                Console.WriteLine("ENTER to skip field");
+                Console.Write("SPEED OF WRITE = ");
+                input = Console.ReadLine();
+
+                if(!String.IsNullOrWhiteSpace(input)) temp.SpeedWrite = Convert.ToInt32(input);
+
+                Console.WriteLine("ENTER to skip field");
+                Console.Write("SPEED OF READ = ");
+                input = Console.ReadLine();
+
+                if (!String.IsNullOrWhiteSpace(input)) temp.SpeedRead = Convert.ToInt32(input);
+
+            }
+
+            Console.Clear();
+            Console.WriteLine("Storage was successfully edited");
         }
         public void FindStorage()
         {
@@ -96,6 +186,7 @@ namespace home_FLASH
 
             Console.WriteLine("Enter the value: ");
             string value = Console.ReadLine();
+            Console.Clear();
 
             if (selected == 1)
             {
